@@ -113,4 +113,78 @@ for (let i = 0; i < 25; i++) {
         5 + Math.random() * 8 + "s";
 
     document.body.appendChild(particle);
-}
+}// ===== KARTU 3D =====
+
+document.querySelectorAll(".card").forEach(card => {
+
+    card.addEventListener("mousemove", (e) => {
+
+        const rect = card.getBoundingClientRect();
+
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = (y - centerY) / 15;
+        const rotateY = (centerX - x) / 15;
+
+        card.style.transform =
+            `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+        card.style.transform =
+            "perspective(800px) rotateX(0) rotateY(0) scale(1)";
+    });
+});
+
+
+// ===== EASTER EGG PAUS =====
+
+let whaleClicks = 0;
+
+document.querySelectorAll(".whale, .big-whale").forEach(whale => {
+
+    whale.addEventListener("click", () => {
+
+        whaleClicks++;
+
+        if (whaleClicks >= 5) {
+
+            whaleClicks = 0;
+
+            const secret = document.createElement("div");
+
+            secret.className = "secret-message";
+
+            secret.innerHTML = `
+                <h3>🐋 Rahasia Ditemukan!</h3>
+                <p>
+                    Kamu berhasil menemukan rahasia
+                    kecil di website Deri. 🌊✨
+                </p>
+                <button class="secret-close">
+                    Tutup
+                </button>
+            `;
+
+            document.body.appendChild(secret);
+
+            setTimeout(() => {
+                secret.classList.add("active");
+            }, 50);
+
+            secret.querySelector(".secret-close")
+                .addEventListener("click", () => {
+
+                    secret.classList.remove("active");
+
+                    setTimeout(() => {
+                        secret.remove();
+                    }, 400);
+                });
+        }
+    });
+});
