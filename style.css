@@ -672,3 +672,26 @@ body.light-mode footer {
     border-radius: 20px;
     cursor: pointer;
 }
+/* ===== OMBAK MENGIKUTI MOUSE ===== */
+
+.ocean {
+    --mouse-x: 0px;
+    --mouse-y: 0px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ocean .wave {
+    transform:
+        translate(var(--mouse-x), var(--mouse-y));
+    transition: transform 0.15s ease-out;
+}
+
+.ocean .whale {
+    transform:
+        translate(
+            calc(var(--mouse-x) * 0.6),
+            calc(var(--mouse-y) * 0.6)
+        );
+    transition: transform 0.2s ease-out;
+}
