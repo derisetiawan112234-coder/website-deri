@@ -396,3 +396,65 @@ footer small {
         padding: 80px 5%;
     }
 }
+/* ===== ANIMASI TAMBAHAN ===== */
+
+.section {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.section.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 15px 35px rgba(0, 100, 180, 0.25);
+}
+
+.whale,
+.big-whale {
+    animation: whaleFloat 4s ease-in-out infinite;
+}
+
+@keyframes whaleFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-18px) rotate(-3deg);
+    }
+}
+
+.btn,
+.contact-btn {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover,
+.contact-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 120, 255, 0.3);
+}
+
+@keyframes glow {
+    0%, 100% {
+        text-shadow: 0 0 5px rgba(255,255,255,0.2);
+    }
+
+    50% {
+        text-shadow: 0 0 20px rgba(255,255,255,0.8);
+    }
+}
+
+.hero h1 span {
+    animation: glow 3s ease-in-out infinite;
+}
+
