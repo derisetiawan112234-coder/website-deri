@@ -458,3 +458,120 @@ footer small {
     animation: glow 3s ease-in-out infinite;
 }
 
+/* ===== FITUR MODERN ===== */
+
+.theme-button {
+    position: fixed;
+    right: 20px;
+    top: 80px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.9);
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.top-button {
+    position: fixed;
+    right: 20px;
+    bottom: 25px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    background: #1597d4;
+    color: white;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: 0.3s;
+}
+
+.top-button.show-top {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.particle {
+    position: fixed;
+    bottom: -20px;
+    width: 6px;
+    height: 6px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    animation: particleFloat linear infinite;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+
+/* ===== LIGHT MODE ===== */
+
+body.light-mode {
+    background: #eaf8ff;
+    color: #123;
+}
+
+body.light-mode header {
+    background: rgba(255,255,255,0.9);
+}
+
+body.light-mode .section {
+    color: #123;
+}
+
+body.light-mode .card {
+    background: white;
+    color: #123;
+}
+
+body.light-mode footer {
+    background: #d8f3ff;
+    color: #123;
+}
+
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 600px) {
+
+    .theme-button {
+        right: 15px;
+        top: 75px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .top-button {
+        right: 15px;
+        bottom: 20px;
+    }
+}
