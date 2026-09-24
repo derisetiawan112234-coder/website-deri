@@ -188,3 +188,56 @@ document.querySelectorAll(".whale, .big-whale").forEach(whale => {
         }
     });
 });
+// ===== SCROLL PROGRESS =====
+
+const progressBar = document.createElement("div");
+
+progressBar.className = "scroll-progress";
+
+document.body.appendChild(progressBar);
+
+window.addEventListener("scroll", () => {
+
+    const scrollTop = window.scrollY;
+    const pageHeight =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
+
+    const progress =
+        (scrollTop / pageHeight) * 100;
+
+    progressBar.style.width = progress + "%";
+});
+
+
+// ===== QUOTE ACAK =====
+
+const quotes = [
+    "Terus bertumbuh, meskipun perlahan. 🌱",
+    "Jangan menyerah hanya karena prosesnya panjang. 🌊",
+    "Hari ini kesempatan untuk menjadi lebih baik. ✨",
+    "Tetap rendah hati saat berada di atas. 🤍",
+    "Tidak harus sempurna, cukup terus memperbaiki diri.",
+    "Allah tahu perjuangan yang tidak dilihat manusia. 🤲"
+];
+
+const quoteElement = document.querySelector(".quote");
+
+if (quoteElement) {
+
+    setInterval(() => {
+
+        const randomQuote =
+            quotes[Math.floor(Math.random() * quotes.length)];
+
+        quoteElement.style.opacity = "0";
+
+        setTimeout(() => {
+            quoteElement.textContent =
+                `"${randomQuote}"`;
+
+            quoteElement.style.opacity = "1";
+        }, 500);
+
+    }, 6000);
+}
